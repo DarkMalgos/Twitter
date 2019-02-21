@@ -54,8 +54,13 @@
                                     <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                         {{ '@'.Auth::user()->username }} <span class="caret"></span>
                                     </a>
-
                                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                        <a class="dropdown-item" href="{{ '/users/' . Auth::user()->id }}">
+                                            profile
+                                        </a>
+                                        <a class="dropdown-item" href="{{ '/users/'.Auth::user()->id.'/edit' }}">
+                                            modifier
+                                        </a>
                                         <a class="dropdown-item" href="{{ route('logout') }}"
                                            onclick="event.preventDefault();
                                                          document.getElementById('logout-form').submit();">
@@ -73,7 +78,7 @@
             </div>
         </nav>
 
-        <main class="py-4 bg-dark">
+        <main class="py-4 bg-dark" style="height: 100vh">
             @yield('content')
         </main>
     </div>

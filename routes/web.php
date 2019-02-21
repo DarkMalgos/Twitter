@@ -22,6 +22,9 @@ Route::middleware(['web'])->group(function () {
 Route::middleware(['web', 'auth'])->group(function () {
     Route::get('/', 'HomeController@index')->name('home');
     Route::post('/', 'TweetController@store')->name('tweet');
+    Route::get('/users/{id}/edit', 'HomeController@editUser')->name('editUser');
+    Route::get('/users/{id}', 'HomeController@user')->name('users');
     Route::delete('/tweets/{id}', 'TweetController@destroy')->name('removeTweet');
+    Route::put('/users/{id}', 'HomeController@updateUser')->name('updateUser');
 });
 
